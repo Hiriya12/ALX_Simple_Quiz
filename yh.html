@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Quiz</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <p id="quiz-question">What is 2 + 2?</p>
+        <div>
+            <input type="radio" id="choice1" name="quiz" value="4">
+            <label for="choice1">4</label><br>
+            <input type="radio" id="choice2" name="quiz" value="22">
+            <label for="choice2">22</label><br>
+            <input type="radio" id="choice3" name="quiz" value="3">
+            <label for="choice3">3</label>
+        </div>
+        <button id="submit-answer">Submit Answer</button>
+        <p id="feedback"></p>
+    </div>
+    <script>
+        function checkAnswer() {
+            const correctAnswer = "4";
+            const selectedOption = document.querySelector('input[name="quiz"]:checked');
+
+            if (selectedOption) {
+                const userAnswer = selectedOption.value;
+                const feedbackElement = document.getElementById('feedback');
+
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = "Correct! Well done.";
+                } else {
+                    feedbackElement.textContent = "That's incorrect. Try again!";
+                }
+            } else {
+                document.getElementById('feedback').textContent = "Please select an answer.";
+            }
+        }
+
+        document.getElementById('submit-answer').addEventListener('click', checkAnswer);
+    </script>
+</body>
+</html>
