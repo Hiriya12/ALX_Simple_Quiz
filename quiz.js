@@ -1,19 +1,13 @@
-function checkAnswer() {
-    const correctAnswer = "4";
-    const selectedOption = document.querySelector('input[name="quiz"]:checked');
+function checkAnswer(){
+    const correctAnswer ="4";
+    const userAnswer = document.querySelector('input[name="quiz"]:checked').value;
 
-    if (selectedOption) {
-        const userAnswer = selectedOption.value;
-        const feedbackElement = document.getElementById('feedback');
+    if (userAnswer === correctAnswer){
+        document.getElementById('feedback').textContent ="Correct! Well done.";
 
-        if (userAnswer === correctAnswer) {
-            feedbackElement.textContent = "Correct! Well done.";
-        } else {
-            feedbackElement.textContent = "That's incorrect. Try again!";
-        }
     } else {
-        document.getElementById('feedback').textContent = "Please select an answer.";
+        document.getElementById('feedback').textContent ="ThaThat's incorrect. Try again!";
     }
-}
-
-document.getElementById('submit-answer').addEventListener('click', checkAnswer);
+   }
+   
+   document.getElementById('submit-answer').addEventListener('click',checkAnswer);
